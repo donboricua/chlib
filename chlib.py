@@ -62,12 +62,12 @@ class Generate:
 			an += str(int(i) + int(v))[-1]
 		return an
 
-	def auth():
+	def auth(pm):
 		'''Generate auth token'''
 		auth = urllib.request.urlopen("http://chatango.com/login",
 			urllib.parse.urlencode({
-			"user_id": self.user,
-			"password": self.password,
+			"user_id": pm.user,
+			"password": pm.password,
 			"storecookie": "on",
 			"checkerrors": "yes" }).encode()
 			).getheader("Set-Cookie")
