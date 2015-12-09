@@ -483,7 +483,7 @@ class Digest(object):
 				if post.post[0] == self.manager.prefix:
 					auth = group.getAuth(post.user)
 					cmd = post.post.split()[0][1:].lower()
-					args = post.post.split()[1:]
+					args = " ".join(post.post.split()[1:])
 					self.call("Command", group, user, auth, post, cmd, args)
 
 	def n(self, group, bites):
