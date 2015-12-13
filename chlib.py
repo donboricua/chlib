@@ -471,7 +471,7 @@ class Digest(object):
 			fSize = ""
 			fColor = ""
 			fFace = "0"
-		group.pArray[bites[6]] = type("Post", (object,), {"group": group, "time": bites[1], "user": bites[2].lower() if bites[2] != '' else "#" + bites[3] if bites[3] != '' else "!anon" + Generate.aid(nColor, bites[4]) if nColor else "!anon" , "uid": bites[4], "unid": bites[5], "pnum": bites[6], "ip": bites[7], "post": re.sub("<(.*?)>", "", ":".join(bites[10:])).replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&apos;", "'").replace("&#39;", "'").replace("&amp;", "&"), "nColor": nColor, "fSize": fSize, "fFace": fFace, "fColor": fColor})
+		group.pArray[bites[6]] = type("Post", (object,), {"group": group, "time": bites[1], "user": bites[2].lower() if bites[2] != '' else "#" + bites[3] if bites[3] != '' else "!anon" + Generate.aid(self, nColor, bites[4]) if nColor else "!anon" , "uid": bites[4], "unid": bites[5], "pnum": bites[6], "ip": bites[7], "post": re.sub("<(.*?)>", "", ":".join(bites[10:])).replace("&lt;", "<").replace("&gt;", ">").replace("&quot;", "\"").replace("&apos;", "'").replace("&#39;", "'").replace("&amp;", "&"), "nColor": nColor, "fSize": fSize, "fFace": fFace, "fColor": fColor})
 
 	def u(self, group, bites):
 		post = group.pArray[bites[1]] if group.pArray.get(bites[1]) else None
