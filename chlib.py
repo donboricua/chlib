@@ -210,12 +210,12 @@ class Group(object):
 		'''Clean's all PM XML'''
 		return re.sub("<(.*?)>", "", pm)
 
-	def sendPost(self, post, html = True):
+	def sendPost(self, post, html = True, channel = "0"):
 		'''Send a post to the group'''
 		if not html:
 			post = post.replace("<", "&lt;").replace(">", "&gt;")
 		if len(post) < 2700 and self.limited == 0:
-			self.sendCmd("bmsg", "t12r", "<n"+self.nColor+"/><f x"+self.fSize+self.fColor+"=\""+self.fFace+"\">"+post)
+			self.sendCmd("bm", "t12r", channel, "<n"+self.nColor+"/><f x"+self.fSize+self.fColor+"=\""+self.fFace+"\">"+post)
 
 	def sendCmd(self, *args, firstcmd = False):
 		'''Send data to socket'''
