@@ -146,6 +146,7 @@ class Group(object):
 			self.unum = None
 			self.pArray = {}
 			self.uArray = {}
+			self.auth = None
 			self.users = list()
 			self.bw = list()
 			self.mods = list()
@@ -242,6 +243,7 @@ class Group(object):
 		if user and password:
 			self.sendCmd("blogin", user, password) #user
 			self.user = user
+			self.auth = self.getAuth(self.user)
 		elif user:
 			self.user = "#" + user
 			self.sendCmd("blogin", user) #temporary user
